@@ -1,0 +1,354 @@
+/**
+* remodal.css
+*/
+
+/* ==========================================================================
+   Remodal's necessary styles
+   ========================================================================== */
+
+/* Hide scroll bar */
+
+html.remodal-is-locked {
+  overflow: hidden;
+}
+
+/* Anti FOUC */
+
+.remodal,
+[data-remodal-id] {
+  display: none;
+}
+
+/* Necessary styles of the overlay */
+
+.remodal-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: -5000px;
+  right: -5000px;
+  bottom: -5000px;
+  left: -5000px;
+
+  display: none;
+}
+
+/* Necessary styles of the wrapper */
+
+.remodal-wrapper {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+  overflow: auto;
+
+  text-align: center;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.remodal-wrapper:after {
+  display: inline-block;
+
+  height: 100%;
+  margin-left: -0.05em;
+
+  content: "";
+}
+
+/* Fix iPad, iPhone glitches */
+
+.remodal-overlay,
+.remodal-wrapper {
+  backface-visibility: hidden;
+}
+
+/* Necessary styles of the modal dialog */
+
+.remodal {
+  position: relative;
+
+  text-size-adjust: 100%;
+}
+
+.remodal-is-initialized {
+  /* Disable Anti-FOUC */
+  display: inline-block;
+}
+
+/**
+* remodal-default-theme.css
+*/
+
+/* ==========================================================================
+   Remodal's default mobile first theme
+   ========================================================================== */
+
+/* Default theme styles for the background */
+
+.remodal-bg.remodal-is-opening,
+.remodal-bg.remodal-is-opened {
+  filter: blur(3px);
+}
+
+/* Default theme styles of the overlay */
+
+.remodal-overlay {
+  background: rgba(43, 46, 56, 0.9);
+}
+
+.remodal-overlay.remodal-is-opening,
+.remodal-overlay.remodal-is-closing {
+  animation-fill-mode: forwards;
+}
+
+.remodal-overlay.remodal-is-opening {
+  animation: remodal-overlay-opening-keyframes 0.3s;
+}
+
+.remodal-overlay.remodal-is-closing {
+  animation: remodal-overlay-closing-keyframes 0.3s;
+}
+
+/* Default theme styles of the wrapper */
+
+.remodal-wrapper {
+  padding: 10px 10px 0;
+}
+
+/* Default theme styles of the modal dialog */
+
+.remodal {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 35px;
+
+  transform: translate3d(0, 0, 0);
+
+  /*color: #2b2e38;*/
+  background: #fff;
+}
+
+.remodal.remodal-is-opening,
+.remodal.remodal-is-closing {
+  animation-fill-mode: forwards;
+}
+
+.remodal.remodal-is-opening {
+  animation: remodal-opening-keyframes 0.3s;
+}
+
+.remodal.remodal-is-closing {
+  animation: remodal-closing-keyframes 0.3s;
+}
+
+/* Vertical align of the modal dialog */
+
+.remodal,
+.remodal-wrapper:after {
+  vertical-align: middle;
+}
+
+/* Close button */
+
+.remodal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: block;
+  overflow: visible;
+
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+
+  color: #95979c;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.remodal-close:hover {
+  color: #2b2e38;
+}
+
+.remodal-close:before {
+  font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;
+  font-size: 25px;
+  line-height: 35px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 35px;
+
+  content: "\00d7";
+  /*content: url(icon-modal-close.png);*/
+  text-align: center;
+}
+
+/* Dialog buttons */
+
+.remodal-confirm,
+.remodal-cancel {
+  font: inherit;
+
+  display: inline-block;
+  overflow: visible;
+
+  min-width: 110px;
+  margin: 0;
+  padding: 12px 0;
+
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+
+  border: 0;
+  outline: 0;
+}
+
+.remodal-confirm {
+  color: #fff;
+  background: #81c784;
+}
+
+.remodal-confirm:hover {
+  background: #66bb6a;
+}
+
+.remodal-cancel {
+  color: #fff;
+  background: #e57373;
+}
+
+.remodal-cancel:hover {
+  background: #ef5350;
+}
+
+/* Remove inner padding and border in Firefox 4+ for the button tag. */
+
+.remodal-confirm::-moz-focus-inner,
+.remodal-cancel::-moz-focus-inner {
+  padding: 0;
+
+  border: 0;
+}
+
+/* Keyframes
+   ========================================================================== */
+
+@keyframes remodal-opening-keyframes {
+  from {
+    transform: scale(1.05);
+
+    opacity: 0;
+  }
+  to {
+    transform: none;
+
+    opacity: 1;
+  }
+}
+
+@keyframes remodal-closing-keyframes {
+  from {
+    transform: scale(1);
+
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+
+    opacity: 0;
+  }
+}
+
+@keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Media queries
+   ========================================================================== */
+
+@media only screen and (min-width: 641px) {
+  .remodal {
+    max-width: 900px;
+  }
+}
+
+/* IE8
+   ========================================================================== */
+
+.lt-ie9 .remodal-overlay {
+  background: #2b2e38;
+}
+
+.lt-ie9 .remodal {
+  width: 700px;
+}
+
+#myModal .remodal-close:focus {border: 2px solid #63B5FF;}
+#myModal .video-heading {color: #000;}
+#myModal .video-heading h1 { font-size: 14px; font-weight: normal; line-height:16px; margin: 0;}
+#myModal .video-heading:focus {border: 0; color: #585858;}
+
+/**
+* BIZ ACCORDION
+*/
+
+#bizaccordion  .ui-corner-all, #bizaccordion  .ui-corner-top {border-radius: 0;}
+#bizaccordion  .ui-accordion-header {padding: 10px 0 10px 20px;}
+#bizaccordion  .ui-state-default {background: transparent url(/bizcontent/general/buttons/caret-gray.png) no-repeat scroll left; background-size: 8px 15px; border: #bfbfc0 solid; border-width: 0 0 1px 0; font-weight: 600;padding: 0 0 0 16px; color: #404040; cursor: pointer; text-decoration: none !important;}
+#bizaccordion  .ui-state-default:hover {background: transparent url(/bizcontent/general/buttons/caret-red.png) no-repeat scroll left; background-size: 8px 15px; font-weight: 600;padding: 0 0 0 16px; text-decoration: none !important;}
+#bizaccordion  .ui-state-default:focus {border: 2px solid #63B5FF;}
+#bizaccordion  .ui-state-active {background: transparent url(/bizcontent/general/buttons/caret-accordion-gray.png) no-repeat scroll left; background-size: 15px 8px; border: none; border-width: 0; font-weight: 600;padding: 0 0 0 25px; cursor: pointer; color: #404040; text-decoration: none !important;}
+#bizaccordion  .ui-state-active:hover {background: transparent url(/bizcontent/general/buttons/caret-accordion-red.png) no-repeat scroll left; background-size: 15px 8px; font-weight: 600;padding: 0 0 0 25px; color: #cc0000; text-decoration: none !important;}
+#bizaccordion  .ui-state-active:focus {border: 2px solid #63B5FF;}
+#bizaccordion  .ui-state-default a:hover, #bizaccordion  .ui-state-active a:hover {color:#cc0000;}
+#bizaccordion  .ui-state-default a:focus, #bizaccordion  .ui-state-active a:focus {border: 2px solid #63B5FF;}
+#bizaccordion  .ui-accordion-content {border: #bfbfc0 solid; border-width: 0 0 1px 0; overflow-x:hidden; padding: 0 0 20px 0;}
+#bizaccordion  h3 {padding-bottom: 10px !important; padding-top: 10px !important;}
+#bizaccordion .ui-accordion-header a { padding-left: 1em;}
+#bizaccordion a:focus{border: 2px solid #63B5FF;}
+
+#bizaccordion .faqs p {margin: 10px 0 10px 0;}
+#bizaccordion .faqs hr {margin: 5px 0 5px 0; border: 0; border-top: 1px solid #bfbfc0;}
+#bizaccordion button {font-size: 16px; line-height: 20px; text-align: left;}
+#bizaccordion .ui-accordion-header button {padding: 0;}
+#bizaccordion .ui-state-default button {color: #000000;}
+#bizaccordion .ui-state-active button {color: #000000;}
+#bizaccordion .ui-accordion-content {padding: 0 0 20px 25px;}
+#bizaccordion .ui-state-active, #bizaccordion .ui-state-active:hover {background-position-y: 14px;}
+#bizaccordion .ui-state-default, #bizaccordion .ui-state-default:hover {background-position-y: 12px;}
+
+
