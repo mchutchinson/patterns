@@ -328,11 +328,11 @@ html.remodal-is-locked {
 
 #bizaccordion  .ui-corner-all, #bizaccordion  .ui-corner-top {border-radius: 0;}
 #bizaccordion  .ui-accordion-header {padding: 10px 0 10px 20px;}
-#bizaccordion  .ui-state-default {background: transparent url(/bizcontent/general/buttons/caret-gray.png) no-repeat scroll left; background-size: 8px 15px; border: #bfbfc0 solid; border-width: 0 0 1px 0; font-weight: 600;padding: 0 0 0 16px; color: #404040; cursor: pointer; text-decoration: none !important;}
-#bizaccordion  .ui-state-default:hover {background: transparent url(/bizcontent/general/buttons/caret-red.png) no-repeat scroll left; background-size: 8px 15px; font-weight: 600;padding: 0 0 0 16px; text-decoration: none !important;}
+#bizaccordion  .ui-state-default {background: transparent url(caret-gray.png) no-repeat scroll left; background-size: 8px 15px; border: #bfbfc0 solid; border-width: 0 0 1px 0; font-weight: 600;padding: 0 0 0 16px; color: #404040; cursor: pointer; text-decoration: none !important;}
+#bizaccordion  .ui-state-default:hover {background: transparent url(caret-red.png) no-repeat scroll left; background-size: 8px 15px; font-weight: 600;padding: 0 0 0 16px; text-decoration: none !important;}
 #bizaccordion  .ui-state-default:focus {border: 2px solid #63B5FF;}
-#bizaccordion  .ui-state-active {background: transparent url(/bizcontent/general/buttons/caret-accordion-gray.png) no-repeat scroll left; background-size: 15px 8px; border: none; border-width: 0; font-weight: 600;padding: 0 0 0 25px; cursor: pointer; color: #404040; text-decoration: none !important;}
-#bizaccordion  .ui-state-active:hover {background: transparent url(/bizcontent/general/buttons/caret-accordion-red.png) no-repeat scroll left; background-size: 15px 8px; font-weight: 600;padding: 0 0 0 25px; color: #cc0000; text-decoration: none !important;}
+#bizaccordion  .ui-state-active {background: transparent url(caret-accordion-gray.png) no-repeat scroll left; background-size: 15px 8px; border: none; border-width: 0; font-weight: 600;padding: 0 0 0 25px; cursor: pointer; color: #404040; text-decoration: none !important;}
+#bizaccordion  .ui-state-active:hover {background: transparent url(caret-accordion-red.png) no-repeat scroll left; background-size: 15px 8px; font-weight: 600;padding: 0 0 0 25px; color: #cc0000; text-decoration: none !important;}
 #bizaccordion  .ui-state-active:focus {border: 2px solid #63B5FF;}
 #bizaccordion  .ui-state-default a:hover, #bizaccordion  .ui-state-active a:hover {color:#cc0000;}
 #bizaccordion  .ui-state-default a:focus, #bizaccordion  .ui-state-active a:focus {border: 2px solid #63B5FF;}
@@ -350,5 +350,6 @@ html.remodal-is-locked {
 #bizaccordion .ui-accordion-content {padding: 0 0 20px 25px;}
 #bizaccordion .ui-state-active, #bizaccordion .ui-state-active:hover {background-position-y: 14px;}
 #bizaccordion .ui-state-default, #bizaccordion .ui-state-default:hover {background-position-y: 12px;}
+#bizaccordion button {background: transparent; border: 0 none;}
 
 
